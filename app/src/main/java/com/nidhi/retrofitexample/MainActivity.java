@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -115,12 +116,19 @@ try {
             @Override
             public void onFailure(Call<List<Student>> call, Throwable t) {
 
+                onexit();
+
                 Log.d("onFailure", t.toString());
 
             }
         });
 
-    }}
+    }
+
+    private void onexit() {
+        Toast.makeText(context, "error in code", Toast.LENGTH_SHORT).show();
+    }
+}
         /*call.enqueue(new Callback<List<Student>>() {
             @Override
             public void onResponse(Call<List<Student>> call, Response<Student> response) {
